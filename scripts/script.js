@@ -1,7 +1,5 @@
 var settings = {
-    'timeout': 10000, // millisecond
-    'url': '/ajax/session.php',
-    'sessionParam': 'js_popup'
+    'url': '/ajax/session.php'
 };
 
 function showPopup() {
@@ -9,8 +7,7 @@ function showPopup() {
 }
 
 function checkSession(t) {
-    var dateTime = Date.now() + settings.timeout;
-    $.post(settings.url, {session_param_name: settings.sessionParam, popup_time: dateTime, currentTime: Date.now()}).done(
+    $.post(settings.url).done(
         function (data) {
             if (data) {
                 if (data == 'yes') {
